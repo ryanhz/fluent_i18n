@@ -19,6 +19,10 @@ class MyApp extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp(
+			onGenerateTitle: (context) {
+				final i18n = FluentLocalizations.current();
+				return i18n.getMessage('app-title');
+			},
 			theme: ThemeData(
 				primarySwatch: Colors.blue,
 				visualDensity: VisualDensity.adaptivePlatformDensity,
