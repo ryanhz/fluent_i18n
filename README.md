@@ -22,7 +22,7 @@ Create folder and add translation files like this
 assets
 └── i18n
     ├── {languageCode}.ftl                  //only language code
-    └── {languageCode}-{countryCode}.ftl    //or full locale code
+    └── {languageCode}_countryCode}.ftl     //or full locale code
 ```
 
 Example:
@@ -31,7 +31,7 @@ Example:
 assets
 └── i18n
     ├── en.ftl
-    └── en-US.ftl 
+    └── en_US.ftl
 ```
 
 Declare your assets localization directory in `pubspec.yaml`:
