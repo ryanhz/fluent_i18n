@@ -128,6 +128,10 @@ Text(i18n.getMessage('home-title'))
 Or if you maintain the locale yourself, you can use
 ```dart
 final i18n = FluentLocalizations.ofLocale(currentLocale);
+...
+// Load somewhere
+await i18n.load();
+...
 Text(i18n.getMessage('home-title')) 
 ```
 ℹ️ No breaking changes, you can use old the static method `FluentLocalizations.of(context)`

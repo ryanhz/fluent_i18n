@@ -1,16 +1,16 @@
 name: fluent_i18n
 description: A singleton localization package for Flutter built on Fluent.
-version: 1.0.0
+version: 2.0.0
 homepage: https://github.com/ryanhz/fluent_i18n
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  fluent: ^1.0.1+2
+  fluent: ^2.0.1
 
 dev_dependencies:
   flutter_test:
