@@ -1,6 +1,8 @@
+import 'dart:convert';
+
 import 'package:fluent/fluent.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show ServicesBinding, rootBundle;
 
 class FluentLocalizations {
   Locale locale;
@@ -19,7 +21,24 @@ class FluentLocalizations {
     final path = 'assets/i18n/$locale.ftl';
     final source = await rootBundle.loadString(path);
     this.addMessages(source);
+    String patchPath = 'assets/i18n/patches/$locale.ftl';
+    if (await assetExists(patchPath)) {
+      final String source = await rootBundle.loadString(patchPath);
+      this.addMessages(source);
+    }
     return this;
+  }
+
+  Future<bool> assetExists(final String assetPath) async {
+    try {
+      final encoded =
+          utf8.encoder.convert(Uri(path: Uri.encodeFull(assetPath)).path);
+      final asset = await ServicesBinding.instance.defaultBinaryMessenger
+          .send('flutter/assets', encoded.buffer.asByteData());
+      return asset != null;
+    } catch (_) {
+      return false;
+    }
   }
 
   void addMessages(String source) {

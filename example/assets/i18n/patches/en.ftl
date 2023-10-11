@@ -1,0 +1,1 @@
+app-title = Fluent Demo (Patched)
